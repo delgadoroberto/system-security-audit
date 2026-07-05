@@ -1,0 +1,28 @@
+{
+    "audit_information": {
+        "start_time": "2026-07-05T14:32:17",
+        "end_time": "2026-07-05T14:32:25",
+        "duration_seconds": 8.17
+    },
+    "system_information": {
+        "hostname": "kali",
+        "operating_system": "Linux",
+        "architecture": "x86_64",
+        "python_version": "3.13.0"
+    },
+    "disk_information": {
+        "total_gb": 120.0,
+        "used_gb": 42.8,
+        "free_gb": 77.2
+    },
+    "statistics": {
+        "files_scanned": 381,
+        "errors": 2
+    },
+    "file_integrity": [
+        {
+            "file": "/etc/passwd",
+            "sha256": "4c18d0..."
+        }
+    ]
+}
