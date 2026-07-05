@@ -4,6 +4,7 @@ import os
 import platform
 import socket
 import getpass
+import hashlib
 from datetime import datetime
 
 
@@ -48,11 +49,66 @@ def disk_information():
     print(f"Free Space  : {free / (1024 ** 3):.2f} GB")
 
 
+def calculate_sha256(file_path):
+    """
+    Calculate the SHA-256 hash of a file.
+    """
+
+    sha256 = hashlib.sha256()
+
+    try:
+        with open(file_path, "rb") as file:
+            while True:
+                chunk = file.read(4096)
+
+                if not chunk:
+                    break
+
+                sha256.update(chunk)
+
+        return sha256.hexdigest()
+
+    except Exception as error:
+        return f"Error: {error}"
+
+
+def scan_directory(directory):
+    """
+    Scan a directory recursively and calculate SHA-256 hashes.
+    """
+
+    print("\n[+] File Integrity Check")
+    print(f"Scanning directory: {directory}\n")
+
+    if not os.path.isdir(directory):
+        print("Directory not found.")
+        return
+
+    for root, _, files in os.walk(directory):
+
+        for filename in sorted(files):
+
+            file_path = os.path.join(root, filename)
+
+            print(f"File: {file_path}")
+            print(f"SHA256: {calculate_sha256(file_path)}")
+            print("-" * 60)
+
+
 def main():
     print_header()
+
     system_information()
+
     disk_information()
+
     environment_variables()
+
+    directory = input(
+        "\nEnter the directory to scan for SHA-256 hashes: "
+    ).strip()
+
+    scan_directory(directory)
 
 
 if __name__ == "__main__":
