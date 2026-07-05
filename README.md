@@ -1,22 +1,30 @@
-# System Security Audit
+## File Integrity Check
 
-A lightweight Python utility that collects basic system information useful for security assessments and lab environments.
+The tool can recursively scan a directory and calculate the SHA-256 hash for every file.
 
-## Features
+### Example
 
-- Operating system information
-- Hostname
-- Current user
-- Python version
-- Disk usage
-- Environment variables
+```text
+[+] File Integrity Check
 
-## Usage
+Scanning directory: /etc
 
-```bash
-python3 audit.py
+File: /etc/passwd
+SHA256:
+d7d5c7...
+
+------------------------------------------------------------
+
+File: /etc/hosts
+SHA256:
+4bd123...
+
+------------------------------------------------------------
 ```
 
-## Requirements
+This feature can be useful for:
 
-- Python 3.9+
+- File integrity verification
+- Security audits
+- Detecting unauthorized file modifications
+- Creating file inventory reports
