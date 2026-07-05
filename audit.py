@@ -7,6 +7,7 @@ import hashlib
 import platform
 import socket
 import getpass
+import argparse
 
 from datetime import datetime
 
