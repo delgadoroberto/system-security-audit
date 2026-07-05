@@ -28,3 +28,23 @@ This feature can be useful for:
 - Security audits
 - Detecting unauthorized file modifications
 - Creating file inventory reports
+
+## JSON Report
+
+The audit results are automatically exported to a JSON file.
+
+```bash
+audit_report.json
+```
+
+The report includes:
+
+- Audit metadata
+- System information
+- Disk usage
+- Environment variables
+- File integrity results
+- Scan statistics
+- Execution time
+
+The JSON format allows the output to be integrated with dashboards, SIEM platforms, or other security automation workflows.
